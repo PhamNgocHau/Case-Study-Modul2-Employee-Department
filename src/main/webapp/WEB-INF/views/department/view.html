@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View Department</title>
+</head>
+<body>
+<h1>View province: <span th:text="${departments}"></span></h1>
+<a href="/departments">Department list</a>
+<table border="1">
+    <tr>
+        <th>First name</th>
+    </tr>
+    <th:block th:each="department : ${departments}">
+        <input th:type="hidden" name="id" th:field="*{id}">
+        <tr>
+            <th th:text="${departments.name}"></th>
+        </tr>
+    </th:block>
+</table>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<style>
+    label{
+        font-size: 20px;
+        text-align: center;
+        padding: 8px;
+    }
+</style>
+<body>
+<h3>View Employee</h3>
+<p>
+    <a th:href="@{/employees}">
+        Back to product list
+    </a>
+</p>
+<form th:action="@{/view-employee}" th:object="${employee}" method="post">
+    <input th:type="hidden" name="id" th:field="*{id}">
+    <div>
+        <h2>Avatar:</h2>
+        <div><img width="200px" height="200px" th:src="@{'/i/' + ${employee.avatar}}"></div>
+    </div>
+    <div>
+        <label>Name:</label>
+        <label th:text="${employee.name}"></label>
+    </div>
+    <div>
+        <label>BirthDate:</label>
+        <label th:text="${employee.birthDate}"></label>
+    </div>
+    <div>
+        <label>Address:</label>
+        <label th:text="${employee.address}"></label>
+    </div>
+    <div>
+        <label>Salary:</label>
+        <label th:text="${employee.salary}"></label>
+    </div>
+</form>
+</body>
+</html>
